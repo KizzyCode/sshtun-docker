@@ -1,0 +1,41 @@
+# Listening 
+Port 22
+AddressFamily any
+ListenAddress 0.0.0.0
+ListenAddress ::
+Protocol 2
+
+# Server identities
+HostKey /etc/ssh/ssh_host_key
+
+# Ciphers and keying
+HostKeyAlgorithms ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp521,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256
+KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384
+Ciphers aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-512
+
+# Logging
+SyslogFacility AUTHPRIV
+
+# Authentication:
+PermitRootLogin no 
+StrictModes yes
+MaxAuthTries 5
+
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+IgnoreRhosts yes
+
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+
+# Deny shell
+PermitTTY no
+ForceCommand /sbin/nologin
+
+# Configure reverse tunneling
+AllowTcpForwarding yes
+GatewayPorts yes
+ClientAliveInterval 20
+ClientAliveCountMax 3
