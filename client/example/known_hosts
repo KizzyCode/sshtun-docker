@@ -1,0 +1,3 @@
+# Public key of the `sshtun` server
+# Format: hostname key-type public-key optional-comment
+* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/SCtUkYaooHbEe/VTynhWaG54WWMp1g8s+7o84rRwP sshtun-server@example.org

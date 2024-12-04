@@ -1,7 +1,9 @@
 FROM alpine:latest
 
 RUN apk add --no-cache openssh shadow
-COPY ./files/ssh_config /etc/ssh/ssh_config
-COPY ./files/start.sh /usr/libexec/start.sh
+RUN adduser --shell=/sbin/nologin --uid=10000 --disabled-password --no-create-home sshtun
 
-CMD ["/usr/libexec/start.sh"]
+COPY ./files/ssh_config /etc/ssh/ssh_config
+
+USER sshtun
+CMD ["/usr/bin/ssh", "sshtun"]

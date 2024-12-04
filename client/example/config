@@ -1,0 +1,8 @@
+# The `sshtun` configuration
+Host sshtun
+    # Remote server address
+    HostName sshtun-server
+    Port 2222
+
+    # Forwards remote port 8888 to `target-address:80`
+    RemoteForward 0.0.0.0:8888 target-address:80

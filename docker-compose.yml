@@ -1,0 +1,16 @@
+services:
+  sshtun-server:
+    build: ./server
+    restart: always
+    stop_signal: SIGQUIT
+    ports:
+      - "2222:2222"
+      - "8888:8888"
+    volumes:
+      - ./server/example:/mnt:ro
+
+  sshtun-client:
+    build: ./client
+    restart: always
+    volumes:
+      - ./client/example:/mnt:ro
