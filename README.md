@@ -14,7 +14,7 @@ Server setup is pretty straight forward:
 2. Create a `host_key` file, and add the server private key (`server-key`)
 3. Mount `authorized_keys` and `host_key` into `/mnt` within the container (UID 10000, permissions `u=rwX,g=,o=`)
 
-See also <./server/example> and <./docker-compose.yml>.
+See also [./client/example](./client/example) and [./docker-compose.yml](./docker-compose.yml).
 
 ## Client Setup
 The client setup is a bit more complex, but also not difficult:
@@ -23,4 +23,4 @@ The client setup is a bit more complex, but also not difficult:
 3. Create a `config` file, and configure the server address, port and forwarding information
 3. Mount `known_hosts`, `host_key` and `config` into `/mnt` within the container (UID 10000, permissions `u=rwX,g=,o=`)
 
-See also <./client/example> and <./docker-compose.yml>.
+See also [./client/example](./client/example) and [./docker-compose.yml](./docker-compose.yml).
